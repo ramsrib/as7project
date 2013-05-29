@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+<h:head>
+        <style type="text/css"></style>
+
+</h:head> 
+
+
+<h:body>
+        
+    <h2>JSF 2 on JBoss 7</h2>
+    <h:form id="jsfexample">
+     <h:panelGrid columns="2" styleClass="default">
+        <h:outputText value="Enter Key : "/>
+        <h:inputText value="#{manager.key}"/>
+        <h:outputText value="Enter Value : "/>
+        <h:inputText value="#{manager.value}"/>
+        <h:commandButton actionListener="#{manager.save}" styleClass="button" value="Save key/value"/>
+        <h:commandButton actionListener="#{manager.clear}" styleClass="button" value="Clear Cache"/>
+        <h:messages/>
+     </h:panelGrid>
+     
+     <h:dataTable value="#{manager.cacheList}" var="item" styleClass="table" headerClass="table-header" rowClasses="table-odd-row,table-even-row">
+        <h:column>
+                <f:facet name="header">Key</f:facet>
+                <h:outputText value="#{item.key}"/>
+        </h:column>
+        <h:column>
+                <f:facet name="header">Value</f:facet>
+                <h:outputText value="#{item.value}"/>
+        </h:column>
+     
+     </h:dataTable>   
+    
+    
+    </h:form>
+
+
+    <rich:panel>
+        <f:facet name="header">
+        Write your own custom rich components with built-in AJAX support
+        </f:facet>
+		<h:outputText value="Panel Body" /> 
+	</rich:panel>
+    
+</h:body> 
+</html>
